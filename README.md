@@ -63,11 +63,6 @@ Columns include:
 
 ---
 
-## 📐 DAX Measures
-```DAX
--- Sales Growth %
-Sales Growth % =
-VAR CurrentMonth = CALCULATE(SUM(Financials[Sales]), DATESMTD(Financials[Date]))
-VAR PreviousMonth = CALCULATE(SUM(Financials[Sales]), DATESMTD(DATEADD(Financials[Date], -1, MONTH)))
-RETURN
-DIVIDE(CurrentMonth - PreviousMonth, PreviousMonth, 0)
+
+<img width="770" height="592" alt="image" src="https://github.com/user-attachments/assets/b5c8c69a-4a11-49e3-a5b3-47344dbc06fd" />
+
