@@ -1,68 +1,85 @@
-# 📊 Sales & Financial Dashboard – Power BI
+# Sales Performance Dashboard Project 🚀
 
-## 📌 Project Overview
-This project demonstrates the design and development of an **interactive business dashboard** using **Power BI**.  
-The dashboard provides actionable insights into **Sales, Profit, and Growth trends**, helping business stakeholders make data-driven decisions.
+## 1. Project Overview
 
----
+This repository documents the creation of a fully **Interactive Sales Performance Dashboard** using Power BI. The goal was to transform raw sales data into actionable business intelligence, fulfilling all requirements of the project brief.
 
-## 🎯 Objectives
-- Build an **interactive dashboard** for business stakeholders.
-- Track **key performance indicators (KPIs)**:
-  - Total Sales
-  - Total Profit
-  - Sales Growth %
-- Enable **time-series analysis** for sales & profit trends.
-- Add **filters/slicers** for interactivity (e.g., Country, Segment, Product).
-- Summarize key metrics with **cards**.
-- Apply a **consistent color theme** and create a clean UI/UX.
+| Feature | Status |
+| :--- | :--- |
+| **Tool Used** | Power BI Desktop |
+| **Deliverables** | Power BI Report File (`.pbix`) |
+| **Objective** | Analyze sales trends, measure KPIs, and inform strategic decisions. |
 
 ---
 
-## 🛠 Tools & Technologies
-- **Power BI Desktop**
-- **Kaggle Financial Sample Dataset**
-- **DAX (Data Analysis Expressions)** for measures
+## 2. Dashboard Screenshot
+
+The final dashboard layout implements **KPI cards**, **Slicers** for interactivity, **Time-Series analysis**, and **Categorical Breakdowns** by product and geography.
+
+
 
 ---
 
-## 📂 Dataset
-Dataset: [Financial Sample Dataset](https://www.kaggle.com/datasets/atharvaarya30/financial-sample-dataset)  
+## 3. Data Source & Preparation
 
-Columns include:
-- `Date`
-- `Country`
-- `Segment`
-- `Product`
-- `Discount Band`
-- `Units Sold`
-- `Sales`
-- `Profit`
+The analysis was conducted on the `sales_data_sample.csv` file, with critical data preparation performed in Power Query.
+
+* **File:** `sales_data_sample.csv`
+* **Key Preparation Steps:**
+    * **Data Type Conversion:** Successfully converted the `ORDERDATE` column to a **Date/Time** type using **Locale (English US)** to handle the date format ambiguity.
+    * **Time Dimensions:** Extracted **Year**, **Month Name**, and **Quarter** columns to enable robust time-series charting.
 
 ---
 
-## 📊 Dashboard Features
-1. **KPI Cards**
-   - Total Sales
-   - Total Profit
-   - Sales Growth %
-2. **Time-Series Analysis**
-   - Monthly Sales & Profit trend line chart
-3. **Category Analysis**
-   - Sales by Country (Bar Chart)
-   - Sales by Segment (Donut Chart)
-   - Profit by Product (Tree Map)
-4. **Filters / Slicers**
-   - Country
-   - Segment
-   - Product
-5. **Navigation & Design**
-   - Clean, minimal theme
-   - Consistent colors
-   - Business-friendly layout
+## 4. Key Performance Indicators (KPIs)
+
+The following core business metrics were calculated using **DAX Measures** and prominently displayed on KPI cards:
+
+| KPI | DAX Formula | Description |
+| :--- | :--- | :--- |
+| **Total Sales** | `SUM('sales_data_sample'[SALES])` | Total Revenue generated. |
+| **Total Orders** | `DISTINCTCOUNT('sales_data_sample'[ORDERNUMBER])` | Total unique transactions (Order Volume). |
+| **Average Order Value (AOV)** | `DIVIDE([Total Sales], [Total Orders])` | Revenue efficiency per order. |
+| **Quantity Sold** | `SUM('sales_data_sample'[QUANTITYORDERED])` | Total units moved. |
 
 ---
 
+## 5. Visualizations and Interactivity
 
-<img width="770" height="592" alt="image" src="https://github.com/user-attachments/assets/b5c8c69a-4a11-49e3-a5b3-47344dbc06fd" />
+The dashboard utilizes a strategic set of visuals to facilitate detailed drill-down analysis.
 
+| Category | Visual Type | Key Fields | Function |
+| :--- | :--- | :--- | :--- |
+| **Time Series** | Line Chart | `Month Name`, `Year`, `[Total Sales]` | Tracks **Year-over-Year growth and seasonality.** |
+| **Breakdowns** | Bar, Map, Donut | `PRODUCTLINE`, `COUNTRY`, `DEALSIZE` | Identifies **top revenue drivers and geographic concentration.** |
+| **Slicers** | Vertical List/Dropdown | `YEAR_ID`, `COUNTRY`, `PRODUCTLINE` | Allows instant, interactive filtering of all report visuals. |
+
+---
+
+## 6. Project Outcome and Conclusion
+
+The project successfully delivered a fully functional, stakeholder-ready dashboard, meeting all original requirements.
+
+### 🎯 Key Insights for Stakeholders:
+
+* **Peak Seasonality:** Analysis confirms a strong sales cycle, peaking predictably in Q4.
+* **Product Focus:** The top 3 `PRODUCTLINE`s are identified as core revenue drivers, justifying prioritized investment.
+* **AOV Efficiency:** The **Average Order Value** provides a key metric for evaluating sales efficiency across different customer segments.
+
+### 🧠 Skills Demonstrated:
+
+* **Advanced Data Prep:** Overcame data type errors using **Power Query's Locale** settings.
+* **DAX Modeling:** Implemented fundamental and conditional measures.
+* **Visualization & UX:** Designed an aesthetically pleasing and user-friendly interface for executive-level consumption.
+
+---
+
+## 7. Getting Started
+
+To view or fork this project:
+
+1.  **Download** Power BI Desktop.
+2.  **Clone** this repository and ensure the `sales_data_sample.csv` file is accessible in the same directory.
+3.  **Open** the main Power BI Report file (`<Your Project Name>.pbix`).
+
+   <img width="1143" height="645" alt="image" src="https://github.com/user-attachments/assets/5bf648f7-3a40-40b7-aaf8-65f635860906" />
